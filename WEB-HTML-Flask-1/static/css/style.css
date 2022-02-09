@@ -1,0 +1,32 @@
+h1 {
+  color: rgb(255, 0, 0);
+}
+p {
+  margin: 2;
+  padding: 10;
+}
+.ind1 {
+  color: rgb(26, 26, 26);
+  background-color: gray;
+  text-align: left;
+}
+.ind2 {
+  color: rgb(0, 87, 0);
+  background-color: rgb(143, 255, 180);
+  text-align: left;
+}
+.ind3 {
+  color: rgb(37, 37, 37);
+  background-color: rgb(153, 152, 152);
+  text-align: left;
+}
+.ind4 {
+  color: rgb(155, 83, 0);
+  background-color: rgb(255, 225, 128);
+  text-align: left;
+}
+.ind5 {
+  color: rgb(80, 0, 0);
+  background-color: rgb(255, 118, 118);
+  text-align: left;
+}

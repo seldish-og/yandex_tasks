@@ -6,7 +6,11 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
-def main():
+def main(name):
+    db_session.global_init(f"db/{name}")
+    db_sess = db_session.create_session()
+    # `app.run()
+
     user = User()
     user.name = "Ridley"
     user.surname = "Scott"
@@ -17,10 +21,45 @@ def main():
     user.email = "scott_chief@mars.org"
     db_sess = db_session.create_session()
     db_sess.add(user)
+
+    user2 = User()
+    user2.name = "Weir"
+    user2.surname = "Andy"
+    user2.age = 21
+    user2.position = "captain1"
+    user2.speciality = "research engineer"
+    user2.address = "module_2"
+    user2.email = "scott_chief@mars.org"
+    db_sess = db_session.create_session()
+    db_sess.add(user2)
+
+    user3 = User()
+    user3.name = "Ridley23"
+    user3.surname = "Scott23"
+    user3.age = 23
+    user3.position = "captain23"
+    user3.speciality = "research engineer23"
+    user3.address = "module_123"
+    user3.email = "scott23_chief@mars.org"
+    db_sess = db_session.create_session()
+    db_sess.add(user3)
+
+    user4 = User()
+    user4.name = "Bean"
+    user4.surname = "Sean"
+    user4.age = 23
+    user4.position = "captain4"
+    user4.speciality = "research engineer"
+    user4.address = "module_1"
+    user4.email = "scott_chief@mars.org"
+    db_sess = db_session.create_session()
+    db_sess.add(user4)
+
     db_sess.commit()
-    app.run()
+    for user in db_sess.query(User).filter(User.address == "module_1").all():
+        print(user)
 
 
 if __name__ == '__main__':
-    db_session.global_init("db/blogs.db")
-    main()
+    name_db = input()
+    main(name_db)

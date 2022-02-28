@@ -1,0 +1,12 @@
+[{ 
+ "age": 20, 
+ "phone": "+73539215818", 
+ "name": "Anna", 
+ "city": "Vienna" 
+},
+{ 
+ "age": 56, 
+ "phone": "+73375945818", 
+ "name": "Asad", 
+ "city": "Bop" 
+}]

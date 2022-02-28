@@ -3,6 +3,7 @@ import pygame
 import requests
 import sys
 import os
+import math
 
 
 class MapInit(object):
@@ -13,6 +14,21 @@ class MapInit(object):
 
     def ll(self):
         return f"{str(self.lon)},{str(self.lat)}"
+
+    def update(self, event):
+        my_step = 0.008
+        if event.key == 280 and self.zoom < 19:  # Page_UP
+            self.zoom += 1
+        elif event.key == 281 and self.zoom > 2:  # Page_DOWN
+            self.zoom -= 1
+        elif event.key == 276:  # LEFT_ARROW
+            self.lon -= my_step * math.pow(2, 15 - self.zoom)
+        elif event.key == 275:  # RIGHT_ARROW
+            self.lon += my_step * math.pow(2, 15 - self.zoom)
+        elif event.key == 273 and self.lat < 85:  # UP_ARROW
+            self.lat += my_step * math.pow(2, 15 - self.zoom)
+        elif event.key == 274 and self.lat > -85:  # DOWN_ARROW
+            self.lat -= my_step * math.pow(2, 15 - self.zoom)
 
 
 def load_map(mp):
@@ -46,8 +62,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif event.type == pygame.KEYUP:
-                mp.update(event)
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    map_file = pygame.transform.scale(map_file, (10, 10))
 
         screen.blit(pygame.image.load(map_file), (0, 0))
         pygame.display.flip()

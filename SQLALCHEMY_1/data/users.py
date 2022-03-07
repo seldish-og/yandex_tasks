@@ -3,6 +3,7 @@ from email.policy import default
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
+from flask_login import LoginManager
 
 
 class User(SqlAlchemyBase):

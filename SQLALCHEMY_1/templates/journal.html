@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Works log</h1>
+    {% for colonist in colonists %}
+        <p>{{colonist.name}}</p>
+    {% endfor %}
+{% endblock %}

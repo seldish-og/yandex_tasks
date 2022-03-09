@@ -7,7 +7,8 @@ class LoginForm(FlaskForm):
     username = StringField('астронавта', validators=[DataRequired()])
     password = PasswordField('Пароль астронавта', validators=[DataRequired()])
 
-    username = StringField('капитана', validators=[DataRequired()])
-    password = PasswordField('Пароль капитана', validators=[DataRequired()])
+    username_cap = StringField('капитана', validators=[DataRequired()])
+    password_cap = PasswordField(
+        'Пароль капитана', validators=[DataRequired()])
 
     submit = SubmitField('Доступ')

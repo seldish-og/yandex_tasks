@@ -1,0 +1,20 @@
+{% extends "profile.html" %}
+
+{% block content %}
+<h2 align="center"> Список профессий</h2>
+    {% if type == "ol" %}
+        <ol>    
+        {% for el in list_prof%}
+            <li>{{el}}</li>
+        {% endfor%}
+        </ol>
+    {% elif type == "ul" %}
+        <ul>
+            {% for el in list_prof%}
+            <li>{{el}}</li>
+            {% endfor%}
+        </ul>
+    {% else %}
+        
+    {% endif %}
+{% endblock %}
